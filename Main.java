@@ -27,23 +27,36 @@ public class Main {
     
             List<Integer> arrayList = new ArrayList<>();
             List<Integer> linkedList = new LinkedList<>();
+            List<Integer> arrayList2 = new ArrayList<>();
+            Iterator<Integer> it = arrayList2.iterator();
             int n = 10000;
             Instant start = Instant.now();
             for (int i = 0; i < n; i++) {
-                arrayList.add(i);
+            arrayList.add(i);
             }
             Instant stop = Instant.now();
             Duration duration = Duration.between(start, stop);
-            long milliseconds = duration.toNanos();
-            System.out.println("Time taken: " + milliseconds + " milliseconds");
+            long nanoseconds = duration.toNanos();
+            System.out.println("Time taken: " + nanoseconds + " nanoseconds");
             Instant startl = Instant.now();
             for (int i = 0; i < n; i++) {
-                linkedList.add(i);
+            linkedList.add(i);
             }
             Instant stopl = Instant.now();
             Duration durationl = Duration.between(startl, stopl);
-            long millisecondss = durationl.toNanos();
-            System.out.println("Time taken: " + millisecondss + " milliseconds");
+            long nanosecondss = durationl.toNanos();
+            System.out.println("Time taken: " + nanosecondss + " nanoseconds");
+            Instant starti = Instant.now();
+            while (it.hasNext()) {
+            Integer i = it.next();
+            if (i < n) {
+                arrayList2.add(i);
+            }
+            }
+            Instant stopi = Instant.now();
+            Duration durationi = Duration.between(starti, stopi);
+            long nanosecondsss = durationi.toNanos();
+            System.out.println("Time taken: " + nanosecondsss + " nanoseconds");
       }
 
     }
